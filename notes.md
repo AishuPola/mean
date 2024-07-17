@@ -1218,9 +1218,7 @@ append can do multipe things can be add at a time.
 append child will do it one thing at a time.
 instead of all these,
 
-```
 ![alt text](image-63.png)
-```
 
 ![alt text](image-64.png)
 
@@ -1249,3 +1247,5 @@ function start(){
 console.log("start is clicked");
 
 }
+
+![alt text](image-67.png)
