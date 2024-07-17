@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <style>
+      .social-media {
+        font-family: Roboto, sans-serif;
+        /* Size and Color of SVG */
+        font-size: 42px;
+        color: purple;
+      }
+
+      body {
+        font-family: Roboto;
+
+        margin: 0;
+        display: grid;
+        place-content: center;
+        min-height: 100vh;
+      }
+
+      .hobbies {
+        position: relative;
+        font-size: 42px;
+        list-style: none;
+      }
+
+      /* Pseudo selector : */
+      /* .hobbies > li:first-child {
+        color: crimson;
+      }
+ 
+      .hobbies > li:last-child {
+        color: orange;
+      } */
+
+      .hobbies > li:nth-child(1) {
+        background-color: crimson;
+      }
+
+      .hobbies > li:nth-child(2) {
+        background-color: palevioletred;
+      }
+
+      .hobbies > li:nth-child(3) {
+        /* move down */
+        top: 20px;
+        /*  move up */
+        left: 20px;
+        /* if it is relative , it will move */
+        position: relative;
+        /* if it is static it doesnot move */
+        /* if it is obsolute, and top is give, it moves up . it will become relative t uls*/
+        /*  everyone will notice him, */
+        background-color: plum;
+      }
+
+      .hobbies > li:nth-child(4) {
+        background-color: purple;
+      }
+
+      .hobbies > li:nth-child(5) {
+        background-color: orange;
+      }
+
+      /* .hobbies > li:nth-child(odd) {
+        color: crimson;
+      }
+ 
+      .hobbies > li:nth-child(even) {
+        color: orange;
+      } */
+    </style>
+  </head>
+  <body>
+    <!-- <p class="social-media">
+      <i class="fa-brands fa-square-instagram"></i> Instagram
+    </p> -->
+
+    <!-- <h2>Hobbies</h2> -->
+
+    <ul class="hobbies">
+      <li><i class="fa-solid fa-utensils"></i> Cooking</li>
+      <li><i class="fa-brands fa-pagelines"></i> Gardening</li>
+      <li><i class="fa-solid fa-paintbrush"></i> Painting</li>
+      <li><i class="fa-solid fa-tv"></i> Watching TV</li>
+      <li><i class="fa-solid fa-table-tennis-paddle-ball"></i> Table Tennis</li>
+    </ul>
+  </body>
+</html>
+<!-- 1.static-default
+ 2.relative-good thief if some is moed, it doesnot notices
+ 3. absolute-bad thief, if someone is moved, it notices and stays in the body
+ 4.  fixed:stays , even the content is moved. it will be floating.
+ An element with position: fixed; is positioned relative to the viewport, which means 
+ it always stays in the same place even if the page is scrolled.
+  The top, right, bottom, 
+ and left properties are used to position the element.
+ 5.sticky:position:sticky, top:0px, it will be on the top
+ 5
+
+ diff betwwen sticky and fixed:
+ 0px is the gap betwwen the page top and box.
+ 
+ 
+ 
+ .-->

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=\, initial-scale=1.0" />
+    <link rel="stylesheet" href="desk.css" />
+    <title>Document</title>
+  </head>
+  <style>
+    body {
+      font-family: "inter", sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      color: #fff;
+    }
+
+    .container {
+      background-color: #3b0a5c;
+      text-align: center;
+      display: flex;
+      flex-direction: row-reverse;
+    }
+
+    img {
+      width: 300px;
+      object-fit: contain;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
+
+    .wholecontainer {
+      background-color: #3b0a5c;
+      margin: 100px auto;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: row-reverse;
+      width: 40%;
+    }
+
+    .newcontainer {
+      background-color: #2b0e3e;
+      text-align: left;
+
+      border-radius: 10px;
+    }
+
+    .new1 {
+      padding-left: 30px;
+      padding-right: 40px;
+    }
+    .new {
+      display: flex;
+      gap: 30px;
+      padding-left: 30px;
+    }
+    h1 {
+      font-size: 20px;
+      padding-right: 30px;
+      padding-left: 30px;
+      padding-top: 10px;
+    }
+    p {
+      font-size: 12px;
+      font-family: "Lexend Deca", sans-serif;
+      font-weight: lighter;
+      line-height: 1.5;
+      color: hsla(0, 0%, 100%, 0.75);
+    }
+
+    .new div {
+      margin-top: 20px;
+      font-size: 15px;
+      font-weight: bold;
+      font-family: "Lexend Deca", sans-serif;
+    }
+    .new div span {
+      font-size: 8px;
+      color: hsla(0, 0%, 100%, 0.75);
+    }
+    /* @media (min-width: 600px) {
+      .wholecontainer {
+        display: grid;
+      }
+    } */
+  </style>
+  <body>
+    <div class="wholecontainer">
+      <div class="container">
+        <img src="image (1).jpg" alt="Business Insights" />
+      </div>
+      <div class="newcontainer">
+        <h1>
+          Get <span style="color: #b141ed">insights</span> that help your
+          business grow.
+        </h1>
+        <div class="new1">
+          <p>
+            Discover the benefits of data analytics and make better decisions
+            regarding revenue, customer experience, and overall efficiency.
+          </p>
+        </div>
+        <div class="new">
+          <div>10k+<br /><span>COMPANIES</span></div>
+          <div>314<br /><span>TEMPLATES</span></div>
+          <div>12M+<br /><span>QUERIES</span></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

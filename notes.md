@@ -386,6 +386,7 @@ why this term?
 
 # shallow copy:
 
+```js
 var x=[[1,3,4],[1,2]]
 var y=[...x]
 y[0]=[1,3,4]
@@ -398,6 +399,7 @@ var x=[[1,3,4],[1,2],8]
 var y=[...x]
 y[2]=100
 then x is var x=[[1,3,4],[1,2],8]//copy by value.
+```
 
 # deep copy:
 
@@ -448,7 +450,70 @@ what is point free coding?
 
 it says more what to do, instead of how to do.
 
+# Curring
+
+```js
+function add(a, b, c) {
+  return a + b + c;
+}
+console.log(add(2, 4, 7));
+```
+
+we have requriement that if we have 3 parameters then we want to add
+we get from a parameter from somewhere api
+b also and c also
+
+we make 3 variables
+function add(a,b,c){
+return a+b+c;
+}
+console.log(add(2,4,7));
+let a;
+let b;
+let c;
+we separate 3 and then we search them untill we fins a,b,c we won't perform add
+
+```js
+function add(a) {
+  return function (b) {
+    return function (c) {
+      return a + b + c;
+    };
+  };
+}
+
+add(2)(3)(5);
+console.log(add(2)(3)(5));
+```
+
+# practical ex
+
+```js
+function sendAutoEmail(to) {
+  return function (subject) {
+    return function (body) {
+      console.log(`sending email to ${to} with subject ${subject}:${body}`);
+    };
+  };
+}
+// const sendAutoEmail= to=> suject=>body=>`sending email to ${to} with subject ${subject}:${body}`;
+let step 1 = sendAutoEmail("rishikasairi@gmail.com");
+let step 2 = step1("New order confirmation")
+let step 3= step 2("hey rishi here is something for you ")
+
+```
+
+# why curring
+
+1. (functions that can take other functions as arguments or return them) makes currying a natural fit. Currying allows you to transform functions into higher-order functions by enabling functions to be passed around and manipulated more easily.
+
+2. Data Transformation: Currying can simplify data transformation pipelines by breaking down operations into smaller functions that can be composed together.
+3. Modular Code: It promotes modular programming by breaking down complex functions into smaller, composable functions.
+4. Readability and Maintainability:
+
 ## what is Currying?
+
+Currying is a technique in functional programming where a function that takes multiple arguments is transformed into a sequence of functions, each taking a single argument.
 
 Currying in JavaScript is a functional programming technique where <big>a function with multiple arguments is transformed into a sequence of nested functions, each taking a single argument.</big>
 
@@ -483,6 +548,18 @@ console.log(result); // Output: 24
 ```
 
 ```js
+using arrow function:
+
+const RectArea = function (l, b, h) {
+  return l * b * h;
+};
+RectArea(1, 2, 3); // calling Normal Function
+
+
+const rectarea=(a,b,c)=>a*b*c
+```
+
+```js
 // Non-curried function
 function greet(greeting, name) {
   return `${greeting}, ${name}!`;
@@ -501,24 +578,40 @@ console.log(greetGoodMorning("Alice")); // Output: "Good morning, Alice!"
 
 ## What is partial application
 
-Partial application is a way to create a new function by fixing some of the arguments of an existing function.
+Partial application is a technique in functional programming where you create a new function by fixing a number of arguments of an existing function.
 
-- it allows you to fix a certain number of arguments to a function, creating a new function with fewer parameters.
+This new function, derived from the original, takes the remaining arguments as its own arguments.
+
+In other words, you create a specialized version of a function by pre-filling some of its arguments, leaving the rest to be supplied later.
 
 ```js
+function add(x, y) {
+  return x + y;
+}
+
+const add1 = add.bind(null, 1); // Fixing the first argument to 1
+
+console.log(add1(2)); // Outputs: 3
+console.log(add1(5)); // Outputs: 6
+```
+
+# partial application and currying together
+
+```js
+// Non-curried function
 function add(a, b) {
   return a + b;
 }
 
-function addPartial(a) {
+// Curried version of add function
+function curriedAdd(a) {
   return function (b) {
     return a + b;
   };
 }
 
-// Usage:
-const add5 = addPartial(5);
-console.log(add5(3)); // Output: 8
+const addTwo = curriedAdd(2); // Fixing 'a' to 2
+console.log(addTwo(3)); // Output: 5
 ```
 
 ## What is point free coding
@@ -541,3 +634,618 @@ const squaredEvensPointFree = numbers.filter(isEven).map(square);
 
 console.log(squaredEvensPointFree); // Output: [4, 16]
 ```
+
+Point-Free style means not specifying arguments for each function application. The term "Point" refers to a function's parameter, and Point-Free means there's no "place" for those parameters. This model aims to make readers focus on what a function does, not caring about the specific names of its parameters.
+
+Returning to a simplest example, we create four functions that, just by looking at them, you can tell what they do:
+
+```js
+const testOdd = (x) => x % 2 === 1;
+const testUnderFifty = (x) => x < 50;
+const duplicate = (x) => x + x;
+const addThree = (x) => x + 3;
+```
+
+# this keyword:
+
+```js
+const student={
+  firstname:"aish",
+  lastname:"pola".
+  fullname:function(){
+    return `${this.lastname},${this.firstname};
+  }
+}
+
+```
+
+=look at the place where function is being called
+![alt text](image-40.png)
+
+here context is object name.
+
+this keyword will have a context to object name.
+
+![alt text](image-41.png)
+window will work, even if nothig is declared.
+a=4
+here we didnt use any var,ley,const. but still it will work because,it goes into window object.
+if strict mode is on , then it will error out.
+
+# three ways to force context to this.
+
+1. call
+2. apply
+3. bind
+
+# diff between call and apply
+
+![alt text](image-42.png)
+
+call: binds the this value, invokes the function, and allows you to pass a list of arguments.
+
+apply: binds the this value, invokes the function, and allows you to pass arguments as an array.
+
+when full name doesnot have any arguments, then call and apply are same.
+when
+
+bind: binds the this value, returns a new function, and allows you to pass in a list of arguments.
+
+# bind
+
+![alt text](image-43.png)
+binding this with student 3 in above example.
+tieing them to together.
+
+```js
+const student = {
+  firstname: "aish",
+  lastname: "pola",
+  fullname: () => {
+    return `${this.lastname},${this.firstname}`;
+  },
+};
+console.log(student.fullname());
+```
+
+```js
+const student5 = {
+  fistname: "manu",
+  lastname: "pola",
+  fullname: () => {
+    return `${this.lastname},${this.firstname}`;
+  },
+  //arrow doesnot have this value context, so it will see for lexical scope.
+  // since lexical scope is not present, it will give undefined, undefined.
+};
+console.log(fullname.call(student5));
+console.log(fullname.apply(student5));
+```
+
+what is the diffference betwwen normal function and arrow function:
+this context is not accepted by arrow function.
+normal function will accept it.
+
+![alt text](image-44.png)
+
+```js
+const luffy = {
+  name: "Monkey D. Luffy",
+  crew: "Straw Hat Pirates",
+  actions: {
+    gearSecond: function () {
+      console.log(`${this.name} activates Gear Second!`); // undefined
+
+      function attack() {
+        console.log(`${this.name} attacks with Gomu Gomu no Jet Pistol!`);
+      }
+
+      attack(); // undefined
+    },
+    gearFourth: function () {
+      console.log(`${this.name} activates Gear Fourth!`); // undefined
+
+      const attack = () => {
+        console.log(`${this.name} attacks with Gomu Gomu no Kong Gun!`);
+      };
+
+      attack(); // undefined
+    },
+    crewShout: () => {
+      console.log(`Crew Shout: ${this.crew} cannot be accessed here.`); // undefined
+    },
+  },
+};
+
+// What happens? Clue: Change Context
+luffy.actions.gearSecond();
+luffy.actions.gearFourth();
+luffy.actions.crewShout();
+
+console.log(luffy.actions.gearSecond.call(luffy));
+console.log(luffy.actions.gearFourth.call(luffy));
+console.log(luffy.actions.crewShout.call(luffy));
+
+// this will point to call , actions is the context here.
+// action doesnot contain any name so its undefined for 1st statement
+
+// to change that context we should give as:
+// actions.gearsecond.call(luffy); -->
+//
+```
+
+````js
+Let's analyze the provided code and understand the output for each method call.
+
+### luffy Object Structure:
+
+```javascript
+const luffy = {
+  name: "Monkey D. Luffy",
+  crew: "Straw Hat Pirates",
+  actions: {
+    gearSecond: function () {
+      console.log(`${this.name} activates Gear Second!`);
+      function attack() {
+        console.log(`${this.name} attacks with Gomu Gomu no Jet Pistol!`);
+      }
+      attack();
+    },
+    gearFourth: function () {
+      console.log(`${this.name} activates Gear Fourth!`);
+      const attack = () => {
+        console.log(`${this.name} attacks with Gomu Gomu no Kong Gun!`);
+      };
+      attack();
+    },
+    crewShout: () => {
+      console.log(`Crew Shout: ${this.crew} cannot be accessed here.`);
+    },
+  },
+};
+````
+
+### Explanation of Behavior:
+
+1. **gearSecond Method**:
+
+   - Defined as a regular function (`function () { ... }`).
+   - Inside `gearSecond`, when `this.name` is used, it correctly refers to `luffy.name`, which is `"Monkey D. Luffy"`.
+   - The `attack` function, however, is defined using `function attack() { ... }`, which creates its own scope. Inside `attack`, `this.name` does not refer to `luffy.name` anymore but to the global scope (in non-strict mode) or `undefined` (in strict mode). Hence, `this.name` inside `attack()` logs as `undefined`.
+   - **Output for `gearSecond`:**
+     ```
+     Monkey D. Luffy activates Gear Second!
+     undefined attacks with Gomu Gomu no Jet Pistol!
+     ```
+
+2. **gearFourth Method**:
+
+   - Defined as a regular function (`function () { ... }`).
+   - Inside `gearFourth`, `this.name` correctly refers to `luffy.name`, which is `"Monkey D. Luffy"`.
+   - The `attack` function is defined using an arrow function (`const attack = () => { ... }`), which captures `this` lexically from its surrounding context (`gearFourth`), meaning it retains the context of `luffy`. Thus, `this.name` inside `attack()` correctly logs `Monkey D. Luffy`.
+   - **Output for `gearFourth`:**
+     ```
+     Monkey D. Luffy activates Gear Fourth!
+     Monkey D. Luffy attacks with Gomu Gomu no Kong Gun!
+     ```
+
+3. **crewShout Method**:
+   - Defined as an arrow function (`() => { ... }`).
+   - Arrow functions do not have their own `this` context; instead, they inherit `this` from the enclosing lexical context (`luffy` in this case).
+   - However, when using `this.crew` inside `crewShout`, it tries to access `this.crew` from its lexical scope, which is the global scope (or `undefined` in strict mode), not `luffy.crew`.
+   - **Output for `crewShout`:**
+     ```
+     Crew Shout: undefined cannot be accessed here.
+     ```
+
+### Method Calls using `call`:
+
+When you try to use `call` to explicitly set the `this` context for these methods, note the following:
+
+- `call` and `apply` are typically used with regular functions to explicitly set the `this` value. However, arrow functions (`crewShout` in this case) do not respect `call` or `apply` for setting `this`.
+- **Output using `call`**:
+  - For `gearSecond` and `gearFourth`, using `call` will correctly execute the methods with `luffy` as the `this` context because they are regular functions.
+  - For `crewShout`, using `call` will still result in `undefined` for `this.crew`, because arrow functions retain their lexical `this` binding and do not respect `call` to change `this`.
+
+### Summary:
+
+- The main issue arises from the use of regular functions (`function () { ... }`) versus arrow functions (`() => { ... }`):
+  - Regular functions: `this` is determined by how the function is called (`luffy.actions.gearSecond()` sets `this` to `luffy`).
+  - Arrow functions: `this` is lexically inherited from the surrounding context and cannot be overridden by `call` or `apply`.
+- This leads to different behaviors in accessing `this.name` and `this.crew` within the methods of `luffy.actions`.
+
+Understanding these nuances helps in correctly predicting and debugging issues related to `this` binding in JavaScript.
+
+````
+
+not recommeded:
+()()
+=>()
+=>=>
+recommended:
+()=>
+
+
+//arrw=ow functions should be placed inside normal functions i.e nest arrow functions inside normal functions
+
+# classes
+
+why do we need claasses:
+
+- we want to mimic the object.
+- the features of object can be put in classes.
+
+```js
+class car {
+  constructor(name, engine, doors, wheels) {
+    this.name = name;
+    this.engine = engine;
+    this.doors = doors;
+    this.wheel = wheel;
+  }
+}
+//blue print of the object:
+//this context is ferrari object
+//new will say , this  keyword should point to the object, that is been created.
+const ferrari = new car("ferrari", "v8", 2, 4);
+const bmw = new car("bmw", "v8", 4, 4);
+const audi = new car("bmw", "v10", 4, 4);
+const honda = new car("honda", "CRF-70", 4, 4);
+const lamborgini = new car("lamborgini", "v6", 2, 4);
+
+console.log(ferrari);
+console.log(bmw);
+console.log(audi);
+console.log(honda);
+console.log(lamborgini);
+console.log(typeof car); //function
+//behind the scenes it is function
+//what ever we do in function, we can do it in car.
+````
+
+# methods
+
+```js
+class car {
+  constructor(name, engine, doors, wheels) {
+    //this.name-> member variable,instance variable
+    this.name = name;
+    this.engine = engine;
+    this.doors = doors;
+    this.wheel = wheel;
+  }
+  //(member/instance)(function/method)(member method)
+  sound() {
+    return "vroom vroom";
+  }
+}
+const ferrari = new car("ferrari", "v8", 2, 4);
+```
+
+```js
+class Bank {
+  constructor(accNo, name, balance) {
+    this.accNo = accNo;
+    this.name = name;
+    this.balance = balance;
+  }
+}
+const accholder1 = new Bank(12341, "aishwarya", 80_000);
+const accholder2 = new Bank(12342, "manaswini", 1_80_000);
+const accholder3 = new Bank(12343, "rishika", 1_50_000);
+const accholder4 = new Bank(12343, "teju", 1_40_000);
+console.log(accholder1);
+console.log(accholder2);
+console.log(accholder3);
+console.log(accholder4);
+```
+
+# dot operator can be used on objects only.
+
+# auto boxing:
+
+it happens on all primitive types.
+string
+boolean
+undefined
+it converts data types to objects, and we can perform all the methods on the number.
+
+private
+
+# abstraction.
+
+![alt text](image-45.png)
+
+# encapulsation:
+
+encapuslate date and logic. putting all together.
+
+member variable&methods-data+logic & access
+it also tells who can access what.
+
+data +methods:
+array is the class
+data is the elements in the array
+methods means all the methods which we are using.
+
+whole code:
+![alt text](image-46.png)
+
+# adding transactions
+
+![alt text](image-47.png)
+
+![alt text](image-48.png)
+
+to make the methods, varaibles private we need to add # infront of those..
+
+# order of methods:
+
+-static methods
+-private methods
+
+- public methods
+
+# inheritance
+
+![alt text](image-49.png)
+
+//----
+//savings account-0.06
+//Currentaccount-0.03 every transaction we made,
+//they are charging rs.10
+
+![alt text](image-50.png)
+
+# html:
+
+# overflow:
+
+overflow:for scrolling.
+
+auto,scroll,hidden,visible
+
+why visible is default:
+atleast content is visible.
+if it is hidden, then content is not visible.
+
+bootstrap:
+was brought up by twitter.
+they solved layout problem.(flex and grid were introduced)
+
+responsive:adjust all the things, while minimising,maximizing.
+google made responsive.
+made responsive by ranking.
+
+# flex
+
+div is the block element., these will respect height and width.
+
+problem with block element is they are occupying extra space.
+
+inline elements we can make it side by side.
+if it is inline element, then it doesnot choose height and width even though they are given.  
+to make it inline.
+display:inline
+
+by using inline block: height and width is respected. we will get side and side.
+
+# inline:
+
+1. doesnot respect height and width.
+2. side by side.
+
+# block:
+
+1. element respect height and width.
+2. stacked
+
+# Inline block
+
+1. element respect height and with
+2. side by side
+3. example: images are inline block
+
+why to go with flex and grid?
+applied to parent, not child.
+
+default property to display is block.
+
+# flex:
+
+- why to go with flex and grid?
+  applied to parent, not child.
+
+- try to match with highest width.
+  for flex width is just suggestion.
+  -why does it is squeesing:
+  everything it will keep it side and side.
+  keep it in one row.
+  good at distributng the gap.
+
+  for wrapping also.
+  flex-direction:column(one below the other)
+  flex-direction:row(one beside other)
+  flex-direction:row-reverse.
+
+  justify-content:display
+  we can give gap properties in flex to get between the side by side things.
+
+  how to make circle:
+  border-radius:50%
+
+---
+
+- background:url(link),color
+- if no content-use background height
+- background-size:cover(zoom in )--expand the container or contain(zoom out)
+- background-repeat:no-repeat(avoids multiple backgounds if the image is small)
+- background-position:bottom-right
+- to mix 2 colors,backgound-blend-mode: ,(adding a filter as in instagram)
+- use the below 2 to get text in the centre of image
+- align items:center
+- justify content:center
+- to rotate=>transform:rotate(10deg)
+
+main,section,header,footer are for wrapping.
+these all for
+
+# semantic elements
+
+1. rANKING- helping the bot..(SEo),nav,header,footer(help the search engines and other user devices to determine the importance and context of web pages.)
+2. readability.
+3. visual impairement.(it will give priortise to main.), which is important.(better accessability)
+
+when we use article and sections elements
+.
+articles in that sections
+
+order:
+main
+article
+sections.
+
+class will have higher priority.
+
+<style>
+    /* this is specificity when ever there is clash of styles, which will get the  higher priority*/
+    /* higher priority for inline, id, next class */
+    /* !important>inline>id>class>element>inherited */
+    /*  only use class or elements */
+    #good {
+      color: aqua;
+    }
+    .fun {
+      color: blue;
+    }
+
+    p {
+      color: orange !important;
+    }
+    p {
+      color: blueviolet;
+    }
+  </style>
+  <body>
+    <p style="color: yellow" id="good" class="fun">Hi, aishwarya pola</p>
+  </body>
+</html>
+
+# grid:
+
+/_ grid gives one below the other _/
+/_ it understands 2d _/
+where as flex understands only 1d
+
+diff between grid and flex:
+it doesnot understand 2d and one below the other is not given in flex.
+if there is no space, then immediately it will give one after the other.
+
+# responsiveness\
+
+--------------margin,space between , then margin-top:auto :
+
+margin-top:auto we will get space
+what ever the gap which is left, that will be inherited/or used.  
+the left over space is given to the particular thing./used in particular class.
+
+js is used to manipulate dom trees and cssom trees.
+
+# font awesome for getting icons.
+
+# font-awesome cdn is for link to import css
+
+the jpg.,png, are in matrix form., each pixel what color it shuld be is present in rgb, and stroed in matrix.if zoom in only one cell is present, thats why clarity is gone.
+
+in svg, its a formula, there is no matrix. we cant do gradient, its not for real images..
+
+# css combinators
+
+# child selector:
+
+![alt text](image-51.png)
+instead of giving class for every p, we use child p, div >p.
+
+# desdecndant
+
+![alt text](image-52.png)
+
+# general sibling selector:
+
+![alt text](image-54.png)
+
+the beside p's of h1 will be selected in general sibling
+
+# adjacent sibling selector: p+p
+
+![alt text](image-53.png)
+
+which ever we take 1st it wont get selected, the second p will get selected.
+
+if there are 3 p's:
+it will give adjacent 2 ps
+
+# for animations
+
+https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timing-function
+
+# clip path is for masking
+
+link is bennettfeely.com
+![alt text](image-55.png)
+
+# position properties:
+
+flag task:
+![alt text](image-57.png)
+
+style part:
+![alt text](image-58.png)
+
+![alt text](image-59.png)
+
+![alt text](image-60.png)
+
+```js
+const falgconatiner = document.createelement("div");
+flagconatiner.setattribu;
+```
+
+![alt text](image-61.png)
+![alt text](image-62.png)
+
+append can do multipe things can be add at a time.
+append child will do it one thing at a time.
+instead of all these,
+
+```
+![alt text](image-63.png)
+```
+
+![alt text](image-64.png)
+
+![alt text](image-65.png)
+
+![alt text](image-66.png)
+
+# get attribute:
+
+to get the value of the attribute, we are using get atribute
+
+# remove attribute:
+
+removes the particular class, or placeholder.
+
+# event listner
+
+<button onlick="start()"></button>
+function start(){
+console.log("start is clicked");
+
+}
+
+<button onlick="stop()"></button>
+function start(){
+console.log("start is clicked");
+
+}

@@ -1,0 +1,273 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    body {
+      background-color: hsl(34, 27%, 90%);
+      margin: 0;
+    }
+    .container {
+      width: 300px;
+      background-color: whitesmoke;
+      overflow: hidden;
+    }
+    .inner {
+      padding: 16px;
+    }
+    img {
+      width: 300px;
+      border-radius: 25px;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/7/7b/India_flag_300.png"
+      />
+      <h1>India</h1>
+
+      <div class="inner">
+        <h3>population: 1,394,975,829</h3>
+        <h3>region: Asia</h3>
+        <h3>capital: New delhi</h3>
+      </div>
+    </div>
+  </body>
+  <script>
+    let countriesInfo = [
+      {
+        name: "India",
+        population: " 1,394,975,829",
+        region: "Asia",
+        flag: "https://upload.wikimedia.org/wikipedia/commons/7/7b/India_flag_300.png",
+        capital: "New delhi",
+      },
+      {
+        name: "Germany",
+        population: "81,770,900",
+        region: "Europe",
+        flag: "https://upload.wikimedia.org/wikipedia/en/thumb/b/ba/Flag_of_Germany.svg/1200px-Flag_of_Germany.svg.png",
+        capital: "Berlin",
+      },
+      {
+        name: "United states",
+        population: "323,947,000",
+        region: "Americas",
+        flag: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/640px-Flag_of_the_United_States.svg.png",
+        capital: "Washington D.C",
+      },
+      {
+        name: "Brazil",
+        population: "206,135,893",
+        region: "Americas",
+        flag: "https://upload.wikimedia.org/wikipedia/commons/0/01/Brazil_flag_300.png",
+        capital: "Brasilia",
+      },
+      {
+        name: "Iceland",
+        population: "334,300",
+        region: "Europe",
+        flag: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Flag_of_Iceland.svg/640px-Flag_of_Iceland.svg.png",
+        capital: "Reykjavik",
+      },
+    ];
+    const container = document.createElement("div");
+    container.setAttribute("class", "countrys-container");
+    let res = countriesInfo.forEach((countryInfo) => {
+      const h1 = document.createElement("h1");
+      h1.innerText = countriesInfo.name;
+
+      const img = document.createElement("img");
+      img.setAttribute("src", "countriesInfo.flag");
+
+      const para = document.createElement("p");
+      para.setAttribute("population:", "countriesInfo.population");
+      para.setAttribute("flag:", "countriesInfo.region");
+      para.setAttribute("capital", "countriesInfo.capital");
+
+      document.body.append(container);
+    });
+
+    // const newhwad = document.createElement("div");
+    //   newhwad.setAttribute("class", "container");
+    //   document.querySelector("body").append(newhwad);
+    //   countriesInfo.forEach((x) => {
+    //     document.querySelector(
+    //       ".container"
+    //     ).innerHTML = `<div class='flexs'><img
+    //     src=${x.flag}
+    //   />
+    //   <div class="content">
+    //     <h3> ${x.name}</h3>
+    //     <p>
+    //       <span>Population:</span> ${x.population}<br />
+    //       <span>Region:</span>${x.region}<br />
+    //       <span>Capital:</span> ${x.capital}<br />
+    //     </p>
+    //   </div></div>`;
+    //   });
+  </script>
+</html> -->
+<!-- sir task:
+  -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      body {
+        font-family: Roboto;
+        background-color: whitesmoke;
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: space-around;
+      }
+
+      .container {
+        max-width: 15rem;
+        /*   background: orange; */
+        border-radius: 0.5rem;
+        overflow: hidden;
+        box-shadow: 3px 3px 10px 0px rgba(50, 50, 50, 0.1);
+        background-color: white;
+      }
+
+      .flag {
+        width: 100%;
+        height: 10rem;
+      }
+
+      .info {
+        padding: 1rem;
+      }
+
+      .info span {
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <div class="container">
+      <img
+        src="https://upload.wikimedia.org/wikipedia/en/thumb/b/ba/Flag_of_Germany.svg/1200px-Flag_of_Germany.svg.png"
+        alt="Germany flag"
+        class="flag"
+      />
+      <div class="info">
+        <h2>Germany</h2>
+        <p><span>Population:</span> 81,770,900</p>
+        <p><span>Region:</span> Europe</p>
+        <p><span>Capital:</span> Berlin</p>
+      </div>
+    </div> -->
+
+    <script>
+      //   const flagContainer = document.createElement("div");
+      //   flagContainer.setAttribute("class", "container");
+      //   document.body.append(flagContainer);
+
+      //   const infoContainer = document.createElement("div");
+      //   infoContainer.setAttribute("class", "info");
+      //   flagContainer.append(infoContainer);
+
+      //   const countryName = document.createElement("h2");
+      //   countryName.innerText = "Germany";
+
+      //   const countryPopulation = document.createElement("p");
+      //   countryPopulation.innerHTML = `<span>Population:</span> 81,770,900`;
+
+      //   const countryRegion = document.createElement("p");
+      //   countryRegion.innerHTML = `<span>Region:</span> Europe`;
+
+      //   const countryCapital = document.createElement("p");
+      //   countryCapital.innerHTML = `<span>Capital:</span> Berlin`;
+      //   infoContainer.append(
+      //     countryName,
+      //     countryPopulation,
+      //     countryRegion,
+      //     countryCapital
+      //   );
+
+      //   const flagContainer = document.createElement("div");
+      //   flagContainer.setAttribute("class", "container");
+      //   document.body.append(flagContainer);
+
+      //   flagContainer.innerHTML = `<img
+      //     src="https://upload.wikimedia.org/wikipedia/en/thumb/b/ba/Flag_of_Germany.svg/1200px-Flag_of_Germany.svg.png"
+      //     alt="Germany flag"
+      //     class="flag"
+      //   />
+      //   <div class="info">
+      //     <h2>Germany</h2>
+      //     <p><span>Population:</span> 81,770,900</p>
+      //     <p><span>Region:</span> Europe</p>
+      //     <p><span>Capital:</span> Berlin</p>
+      //   </div>`;
+
+      let countriesInfo = [
+        {
+          name: "India",
+          population: " 1,394,975,829",
+          region: "Asia",
+          flag: "https://upload.wikimedia.org/wikipedia/commons/7/7b/India_flag_300.png",
+          capital: "New delhi",
+        },
+        {
+          name: "Germany",
+          population: "81,770,900",
+          region: "Europe",
+          flag: "https://upload.wikimedia.org/wikipedia/en/thumb/b/ba/Flag_of_Germany.svg/1200px-Flag_of_Germany.svg.png",
+          capital: "Berlin",
+        },
+        {
+          name: "United states",
+          population: "323,947,000",
+          region: "Americas",
+          flag: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/640px-Flag_of_the_United_States.svg.png",
+          capital: "Washington D.C",
+        },
+        {
+          name: "Brazil",
+          population: "206,135,893",
+          region: "Americas",
+          flag: "https://upload.wikimedia.org/wikipedia/commons/0/01/Brazil_flag_300.png",
+          capital: "Brasilia",
+        },
+        {
+          name: "Iceland",
+          population: "334,300",
+          region: "Europe",
+          flag: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Flag_of_Iceland.svg/640px-Flag_of_Iceland.svg.png",
+          capital: "Reykjavik",
+        },
+      ];
+
+      function addCountry(country) {
+        document.body.innerHTML += `
+        <div class="container">
+        <img
+            src="${country.flag}"
+            alt="${country.name} flag"
+            class="flag"
+        />
+        <div class="info">
+            <h2>${country.name}</h2>
+            <p><span>Population:</span> ${country.population}</p>
+            <p><span>Region:</span> ${country.region}</p>
+            <p><span>Capital:</span> ${country.capital}</p>
+        </div>
+        </div>
+    `;
+      }
+    </script>
+  </body>
+</html>

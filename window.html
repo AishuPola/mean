@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button></button>
+    <h1>This is super cool</h1>
+    <script>
+      //window.alert('this is cool')
+      // window.alert(5+4);
+      //   const result = window.confirm("are you sure about closing?");
+      //   console.log(result); //true
+
+      //   const name = window.prompt("enter ur name"); // its like a form, but its older version
+      //   console.log(name);
+
+      //  these are older version methods, used before consolewas introduced.
+
+      // it is the higher order funtion
+      //  1.timer;
+      //   window.setTimeout(() => {
+      //     console.log("hi, this is aishu");
+      //   }, 5000);
+      //   //2.runner:
+      //   //   after 5th second, the function is called
+      //   const rocketInterval = window.setInterval(() => {
+      //     console.log("💰💰💰");
+      //   }, 2000);
+      //   //   the function is getting called for every 2 seconds.
+      //   //3.stopper
+      //   window.clearInterval(rocketInterval);
+      // in this, the function is stopped before starting
+
+      //task: the rocket should print 3 times and stop it.
+      let count = 0;
+      const rocketInterval2 = window.setInterval(() => {
+        console.log("🚀🚀🚀");
+
+        count = count + 1;
+        if (count == 3) {
+          clearInterval(rocketInterval2);
+        }
+      }, 2000);
+
+      //or
+      //   const rocketInterval = setInterval(() => {
+      //     console.log("🧑‍🚀🚀");
+      //   }, 2000);
+
+      //   setTimeout(() => {
+      //     clearInterval(rocketInterval)
+      //  }, 6000);
+
+      //   Task - Change the whole page color every 2s - cycle
+
+      //         const colors = ["crimson", "plum", "orange", "purple"];
+
+      //   let result= setInterval(()=>{
+      //       colors.foreach((color)=>
+
+      //     )
+      //   },2000)
+      const colors1 = ["crimson", "plum", "orange", "purple"];
+      //   let i = 0;
+      //   function colors() {
+      //     document.body.style.backgroundColor = colors1[i];
+      //     i = (i + 1) % colors1.length;
+      //   }
+      //   colors();
+      //   setInterval(colors, 2000);
+      //sir sol:
+      // document.body.setAttribute("style","background:orange")
+      let i = 0;
+      setInterval(() => {
+        if (i === colors1.length) {
+          i = 0;
+        }
+        document.body.style.backgroundColor = colors1[i];
+        i++;
+      }, 2000);
+    </script>
+  </body>
+</html>

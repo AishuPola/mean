@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Aishu is awesome awesome!😍❤️</h1>
+    <h1>wow!thats great</h1>
+    <span id="highlight">save water💧</span>
+    <h2 class="fun">Movies</h2>
+    <h2 class="fun">Travelling</h2>
+    <p class="fun">cooking</p>
+    <!-- change to super cool -->
+
+    <ul class="languages">
+      <li>Js</li>
+      <li>sql</li>
+    </ul>
+
+    <h3>Hobbies</h3>
+
+    <ul class="hobbies"></ul>
+    <!-- attributes are class -->
+    <input class="username" type="text" />
+    <script>
+      const headings = document.getElementsByTagName("h1");
+      // multiple h1;s can be there thats why we use get elements.instead of element
+      console.log(headings[0].innerText); //read
+      headings[0].innerText = "Aishu is cute and  awesome!😍"; //update
+      console.log(headings[0].innerText);
+
+      const headings1 = document.getElementsByClassName("fun");
+      console.log(headings1[0].innerText); //read
+
+      headings1[2].innerText = "Super cool";
+      console.log(headings1[2].innerText);
+
+      const headings2 = document.getElementById("highlight");
+      console.log(headings2.innerText);
+      // all these 3 can be used by only one of query selector.
+      console.log(document.querySelector("h1"));
+      console.log(document.querySelector("#highlight"));
+      console.log(document.querySelector(".fun"));
+      // this (document.querySelector will return only 1st one., similar to find, it will match only 1st one.
+
+      // to get all the elements we use querySelectorAll
+      console.log(document.querySelectorAll(".fun")[2].innerText);
+
+      //  why to use all these getElementsByClassName,getElementById when we have querySelector.
+      // because we gotquerySelectorAll  after wards, and also the old web pages are designed by using getElementsByClassName,getElementById.,
+      // that old web pages will be  collapesed. so in order to save them we still use getElementsByClassName,getElementById
+      const headingFun = document.createElement("h3");
+      headingFun.innerText = "we are proclink family";
+      //we can see it on broweser  why because we ddidnt mention where it should cme on browser.
+
+      document.body.append(headingFun); // it will display on the browser.
+      //or
+      document.querySelector("body").append(headingFun);
+      console.log(document.querySelector(".languages").innerText); //js sql
+      console.log(document.querySelector(".languages").innerHTML); //query.
+      document.querySelector(".languages").innerHTML = `<li>CSS</li>
+      <li>HTML</li>`; // this will consider as html  and print as list on browser
+      // it creates a particular element, and attaches to the dom(parent element)
+      document.querySelector(".languages").innerText = `<li>CSS</li>
+        <li>HTML</li>`; // this will consider as text and will print as text on browser
+      //it doesnot create any element
+
+      const hobbiesData = [
+        "Reading",
+        "Painting",
+        "Photography",
+        "Hiking",
+        "Gardening",
+        "Cooking",
+        "Playing musical instruments",
+        "Dancing",
+        "Traveling",
+        "Knitting",
+      ];
+
+      let res = hobbiesData.forEach((hobbieData) => {
+        const list = document.createElement("li");
+        list.innerText = hobbieData;
+
+        document.querySelector(".hobbies").append(list);
+      });
+      console.log(res);
+
+      //or
+      //   const allhobbies = hobbiesData.map((x) => `<li>${x}</li>`).join(" ");
+      //   document.querySelector(".hobbies").innerHTML = allhobbies;
+
+      document
+        .querySelector(".username")
+        .setAttribute("placeholder", "enter your name");
+      document.querySelector(".username").setAttribute("style", "color:pink");
+    </script>
+  </body>
+</html>

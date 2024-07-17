@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        height: 300px;
+        width: 300px;
+        background: crimson;
+        /* transition: all 0.2s; */
+        transition: all 2s ease-in-out;
+        /* ease in ease out gradually increasing its speed, and decreasing its speed */
+        /*  all stands for all the properties of box */
+        /* animates all the properties of box */
+      }
+      .box:hover {
+        /* targetting the mouse */
+        /* border-radius: 50%;
+        /* transform: scale(1.5); */
+        /* transform: roatate(360deg) scale(1.5);
+        background: green; */
+        /*  this will convert into circle */
+        transform: scale(1.5);
+        cursor: pointer;
+        /* cursor will become big */
+      }
+      .box:active {
+        /*  targetting the mouse click */
+        transform: scale(0.9);
+      }
+      /* key frames helps for animations in css */
+      body {
+        margin: 0;
+        display: grid;
+        place-content: center;
+        min-height: 100vh;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="box"></div>
+  </body>
+</html>

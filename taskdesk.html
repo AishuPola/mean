@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .content {
+      width: 500px;
+      overflow: auto;
+    }
+    body {
+      font-family: "inter", sans-serif;
+      /* margin: 0; */
+      background-color: #000;
+      color: #fff;
+    }
+    .container {
+      background-color: #2e004c;
+      /* width: 300px; */
+      /* margin: 50px auto; */
+      border-radius: 10px;
+      /* height: 25vh; */
+      overflow: hidden;
+      display: flex;
+      padding: left 350px;
+      flex-direction: row-reverse;
+    }
+
+    img {
+      object-fit: cover;
+      /* border-top-left-radius: 20px;
+   border-top-right-radius: 20px; */
+      width: 500px;
+      margin: 0;
+      margin-top: 0;
+      margin-bottom: 0;
+      height: fit-content;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin: 20px 0;
+      text-align: left;
+      padding: 30px;
+    }
+    p {
+      font-size: 14px;
+      margin: 20px 0;
+      font-family: "inter", "serif";
+      padding-right: 100px;
+    }
+    .new {
+      margin-top: 50px;
+    }
+    .container div {
+      font-size: 20px;
+      font-weight: bold;
+    }
+    .container .new div span {
+      font-size: 10px;
+      color: hsla(0, 0%, 100%, 0.75);
+    }
+
+    .new {
+      margin-top: 50px;
+      display: flex;
+      justify-content: space-around;
+      text-align: left;
+    }
+    /* .main content {
+        text-align: left;
+      } */
+    .content h2 {
+      margin-bottom: 20px;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <div class="img">
+        <img src="image (1).jpg" />
+      </div>
+      <div class="main">
+        <div class="content">
+          <h1>
+            Get <span style="color: blueviolet">insights</span> that help your
+            business grow.
+          </h1>
+
+          <p>
+            Discover the benefits of data analytics and make better decisions
+            regarding revenue, customer experience, and overall efficiency.
+          </p>
+
+          <!-- <h2>10k+</h2>
+<p>COMPANIES</p> -->
+          <div class="new">
+            <div>10k+<br /><span>COMPANIES</span></div>
+            <div>314<br /><span>TEMPLATES</span></div>
+            <div>12M+<br /><span>QUERIES</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

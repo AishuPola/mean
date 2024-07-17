@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    /* this is specificity when ever there is clash of styles, which will get the  higher priority*/
+    /* higher priority for inline, id, next class */
+    /* !important>inline>id>class>element */
+    /*  only use class or elements */
+    #good {
+      color: aqua;
+    }
+    .fun {
+      color: blue;
+    }
+
+    p {
+      color: orange !important;
+    }
+    p {
+      color: blueviolet;
+    }
+  </style>
+  <body>
+    <p style="color: yellow" id="good" class="fun">Hi, aishwarya pola</p>
+  </body>
+</html>

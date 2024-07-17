@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      body {
+        font-family: "inter", sans-serif;
+        /* margin: 0; */
+        padding: 0;
+        background-color: #000;
+        color: #fff;
+        /* min-height: 100vh; this is for to get center content, we will get scroll bar.,max how much content is there that can be used. */
+      }
+
+      .container {
+        background-color: #2e004c;
+        text-align: left;
+        width: 300px;
+        margin: 50px auto;
+        border-radius: 10px;
+        height: 90vh;
+        overflow: hidden;
+      }
+
+      img {
+        object-fit: cover;
+        width: 100%;
+      }
+
+      h1 {
+        font-size: 24px;
+        margin: 20px 0;
+      }
+      p {
+        font-size: 14px;
+        margin: 20px 0;
+        font-family: "inter", "serif";
+      }
+      .new {
+        margin-top: 50px;
+      }
+      .container div {
+        margin-top: 28px;
+        font-size: 20px;
+        font-weight: bold;
+      }
+      .container .new div span {
+        font-size: 10px;
+        color: hsla(0, 0%, 100%, 0.75);
+      }
+      .container2 {
+        padding: 16px 32px;
+        text-align: center;
+      }
+
+      @media (min-width: 600px) {
+        .container {
+          /* display: grid;
+          grid-template-columns: 1fr 1fr; */
+
+          display: flex;
+          flex-direction: row-reverse;
+          width: initial;
+          margin: initial;
+          height: initial;
+        }
+
+        img {
+          width: 300px;
+        }
+
+        .new {
+          display: flex;
+          justify-content: space-around;
+          /* justify-content: space-between; */
+        }
+      }
+      /* @media (min-width: 600px) {
+        .container2 {
+          display: flex;
+          flex-direction: row-reverse;
+        }
+      } */
+    </style>
+
+    <div class="container">
+      <img src="image (1).jpg" />
+      <div class="container2">
+        <h1>
+          Get <span style="color: blueviolet">insights</span> that help your
+          business grow.
+        </h1>
+        <p>
+          Discover the benefits of data analytics and make better decisions
+          regarding revenue, customer experience, and overall efficiency.
+        </p>
+        <!-- <h2>10k+</h2>
+<p>COMPANIES</p> -->
+        <div class="new">
+          <div>10k+<br /><span>COMPANIES</span></div>
+          <div>314<br /><span>TEMPLATES</span></div>
+          <div>12M+<br /><span>QUERIES</span></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

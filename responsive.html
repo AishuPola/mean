@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    body {
+      margin: 0;
+      display: grid;
+      place-content: center;
+      min-height: 100vh;
+    }
+    .container {
+      height: 200px;
+      width: 200px;
+      background: crimson;
+    }
+
+    @media(min-width:1200px){
+    /* converting square container to circle */
+ .container{
+    
+    height: 300px;
+    width:300px;
+    background:pink;
+ }
+}
+
+    /* after 600px they wake up and the below code will over ride the above code,it will cascade */
+@media(min-width:600px){
+    /* converting square container to circle */
+ .container{
+    border-radius: 50%;
+    background:purple;
+    /* the output will be purple, at the last since the color is overridden */
+ }
+}
+
+
+/* start with order of the min-width */
+
+
+/* @media(min-width:1200px){
+    /* converting square container to circle */
+ /* .container{
+    
+    height: 300px;
+    width:300px;
+    background:pink;
+ }
+/* } */
+
+/* these are container queries */
+
+/* when to decide the breakpoints is that when it gets conjusted, then we need to use the breakpoints. */
+
+
+/* break point is the point where abruptly(suddenly) changes. */
+/* there can be in built size to breakpoint also, but this is the best(high quality) */
+    
+  </style>
+  <body>
+    <!-- mobile first approach, it can be used in desktop approach also -->
+   <div class="container"></div>
+
+
+    </style>
+  </body>
+</html>

@@ -34,25 +34,7 @@ console.log(removeDuplicates(alleventattendees));
 //   { topics: ["Environment", "Politics"], rating: 5 },
 // ];
 
-// function analyzeTopicRatings(surveyResponses) {
-//   return surveyResponses.reduce((topicRatings, { topics, rating }) => {
-//     topics.forEach((topic) => {
-//       if (!topicRatings[topic]) {
-//         topicRatings[topic] = {
-//           sum: 0,
-//           count: 0,
-//           average: 0,
-//         };
-//       }
-//       topicRatings[topic].sum += rating;
-//       topicRatings[topic].count += 1;
-//       topicRatings[topic].average =
-//         topicRatings[topic].sum / topicRatings[topic].count;
-//     });
-//     return topicRatings;
-//   }, {});
-// }
-// console.log(analyzeTopicRatings(surveyResponses));
+//
 
 //    Expected Output:
 //    { 'Environment': 4.5, 'Economy': 3.5, 'Health': 3, 'Politics': 5 }
