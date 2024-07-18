@@ -4,42 +4,59 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-
     <style>
       body {
-        font-family: Roboto;
+        font-family: "inter", sans-serif;
+        margin: 0;
         background-color: whitesmoke;
+        place-content: center;
+        min-height: 90vh;
         display: flex;
-        gap: 1rem;
         flex-wrap: wrap;
         justify-content: space-around;
       }
-
-      .container {
-        max-width: 15rem;
-        /*   background: orange; */
-        border-radius: 0.5rem;
-        overflow: hidden;
-        box-shadow: 3px 3px 10px 0px rgba(50, 50, 50, 0.1);
-        background-color: white;
+      .country-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: space-around;
+      }
+      h2 {
+        font-family: "inter", sans-serif;
+        padding-left: 20px;
       }
 
-      .flag {
+      img {
         width: 100%;
-        height: 10rem;
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
       }
 
-      .info {
-        padding: 1rem;
+      .container1 {
+        width: 300px;
+        background-color: white;
+        border-radius: 20px;
+        box-shadow: 5px 5px 5px;
+        height: 50vh;
       }
 
-      .info span {
+      .new {
+        margin-top: 20px;
+        gap: 10px;
         font-weight: bold;
+        padding: 20px;
+        /* padding-left: 20px;
+        padding-bottom: 20px; */
+      }
+
+      .new div span {
+        font-weight: normal;
       }
     </style>
   </head>
+
   <body>
-<script>
+    <script>
       let countriesInfo = [
         {
           name: "India",
@@ -77,31 +94,24 @@
           capital: "Reykjavik",
         },
       ];
- 
-      function addCountry(country) {
-        document.body.innerHTML += `
-        <div class="container">
-        <img
-            src="${country.flag}"
-            alt="${country.name} flag"
-            class="flag"
-        />
-        <div class="info">
-            <h2>${country.name}</h2>
-            <p><span>Population:</span> ${country.population}</p>
-            <p><span>Region:</span> ${country.region}</p>
-            <p><span>Capital:</span> ${country.capital}</p>
+
+      const container = document.createElement("container");
+      container.setAttribute("class", "country-container");
+      document.body.append(container);
+
+      countriesInfo.forEach((country) => {
+        document.querySelector(
+          ".country-container"
+        ).innerHTML += `<div class="container1">
+        <img src="${country.flag}" alt="German Flag" />
+        <h2>${country.name}</h2>
+        <div class="new">
+          <div>Population: <span>${country.population}</span></div>
+          <div>Region: <span>${country.region}</span></div>
+          <div>Capital: <span>${country.capital}</span></div>
         </div>
-        </div>
-    `;
-      }
- 
-   
+  </div>`;
+      });
     </script>
-  </body>
-</html>
-</script>
-
-
   </body>
 </html>

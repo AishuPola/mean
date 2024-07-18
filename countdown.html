@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    body {
+      margin: 0;
+      display: grid;
+      min-height: 100vh;
+      place-content: center;
+      background-color: pink;
+    }
+    h1 {
+      font-size: 86px;
+    }
+  </style>
+  <body>
+    <h1>10</h1>
+
+    <script>
+      setTimeout(function timeout() {
+        //  call back will execute the function
+        document.querySelector("h1").innerText = 9;
+        setTimeout(function timeout() {
+          document.querySelector("h1").innerText = 8;
+          setTimeout(function timeout() {
+            document.querySelector("h1").innerText = 7;
+            setTimeout(function timeout() {
+              document.querySelector("h1").innerText = 6;
+              setTimeout(function timeout() {
+                document.querySelector("h1").innerText = 5;
+
+                setTimeout(function timeout() {
+                  document.querySelector("h1").innerText = 4;
+
+                  setTimeout(function timeout() {
+                    document.querySelector("h1").innerText = 3;
+
+                    setTimeout(function timeout() {
+                      document.querySelector("h1").innerText = 2;
+
+                      setTimeout(function timeout() {
+                        document.querySelector("h1").innerText = 1;
+
+                        setTimeout(function timeout() {
+                          document.querySelector("h1").innerText =
+                            "Happy Independence Day";
+                        }, 1000);
+                      }, 1000);
+                    }, 1000);
+                  }, 1000);
+                }, 1000);
+              }, 1000);
+            }, 1000);
+          }, 1000);
+        }, 1000);
+      }, 1000);
+      // debugging is the hell.
+      //nesting of call backs is called call back hell
+      // this is call back hell,
+      // this consists of iluminity triangle
+      //call back hell can be improved by promises.
+
+      //fetch is for data to come back from web apis., we dk the time limit
+      // web api it will wait ,until  data come backs from db
+
+      //call back was invente, dk how much time will it take
+    </script>
+  </body>
+</html>

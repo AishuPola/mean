@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul class="mylist"></ul>
+    <script>
+      // fetch("https://restcountries.com/v3.1/all")
+      //   .then((response) => response.json())
+      //   .then((data) => console.log(data));
+
+      fetch("https://restcountries.com/v3.1/all")
+        .then((response) => response.json())
+        .then((data) => {
+          let res = data.map((country) => country?.name?.common);
+          console.log(res);
+        });
+
+      //   Task 2 -> Population more than 1_00_00_000 & Sorted by population
+      //         Output
+      //        ["India", "China", "Russia" ... ]
+
+      fetch("https://restcountries.com/v3.1/all")
+        .then((response) => response.json())
+        .then((data) => {
+          let res = data
+            .filter((country) => country.population > 1_00_00_000)
+            .sort((a, b) => b.population - a.population)
+
+            .map((country) => country?.name?.common);
+          console.log(res);
+        });
+
+      // Task 3 -> Population more than 1_00_00_000
+      //   Output
+      //  1. India - 150000000
+      //  2. China - 120000000
+      //  3. Russia - 80000000
+      // ....
+
+      fetch("https://restcountries.com/v3.1/all")
+        .then((response) => response.json())
+        .then((data) => {
+          let res1 = data
+            .filter((country) => country.population > 1_00_00_000)
+            .sort((a, b) => b.population - a.population)
+            .map(
+              (country, index) =>
+                `${index + 1}. ${country?.name?.common} - ${country.population}`
+            );
+          console.log(res1.join("\n"));
+        });
+
+      //4.top 10 populated countries
+
+      fetch("https://restcountries.com/v3.1/all")
+        .then((response) => response.json())
+        .then((data) => {
+          let res = data
+            .filter((country) => country.population > 1_00_00_000)
+            .sort((a, b) => b.population - a.population)
+            .slice(0, 10)
+
+            .map(
+              (country, index) =>
+                `${index + 1} ${country?.name?.common}-${country?.population}`
+            );
+          console.log(res.join("\n"));
+        });
+      //   Task 5 -> Display the Top 10 on the screen in list form & Population are comma separated
+      fetch("https://restcountries.com/v3.1/all")
+        .then((response) => response.json())
+        .then((data) => {
+          let res = data
+            .filter((country) => country.population > 1_00_00_000)
+            .sort((a, b) => b.population - a.population)
+            .slice(0, 10)
+
+            .map(
+              (country) => ` ${country?.name?.common}-${country?.population}`
+            );
+          console.log(res.join("\n"));
+
+          let outres = res.forEach((resu) => {
+            const list = document.createElement("li");
+            list.innerText = resu;
+            document.querySelector(".mylist").append(list);
+          });
+          console.log(outres);
+        });
+
+      function addCountry(country) {
+        fetch("https://restcountries.com/v3.1/all")
+          .then((res) => res.json())
+          .then((countries) => {
+            countries.forEach((country) =>
+              addCountry({
+                name: country?.name.common,
+                flag: country.flags.svg,
+              })
+            );
+          });
+      }
+      countriesInfo.forEach((country) => addCountry(country));
+    </script>
+  </body>
+</html>
