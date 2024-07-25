@@ -8,103 +8,199 @@
   <body>
     <ul class="mylist"></ul>
     <script>
-      // fetch("https://restcountries.com/v3.1/all")
-      //   .then((response) => response.json())
-      //   .then((data) => console.log(data));
+            type = "module";
+            fetch("https://restcountries.com/v3.1/all")
+              .then((response) => response.json())
+              .then((data) => console.log(data));
 
-      fetch("https://restcountries.com/v3.1/all")
-        .then((response) => response.json())
-        .then((data) => {
-          let res = data.map((country) => country?.name?.common);
-          console.log(res);
-        });
+            fetch("https://restcountries.com/v3.1/all")
+              .then((response) => response.json())
+              .then((data) => {
+                let res = data.map((country) => country?.name?.common);
+                console.log(res);
+              });
 
-      //   Task 2 -> Population more than 1_00_00_000 & Sorted by population
-      //         Output
-      //        ["India", "China", "Russia" ... ]
+            //   Task 2 -> Population more than 1_00_00_000 & Sorted by population
+            //         Output
+            //        ["India", "China", "Russia" ... ]
 
-      fetch("https://restcountries.com/v3.1/all")
-        .then((response) => response.json())
-        .then((data) => {
-          let res = data
-            .filter((country) => country.population > 1_00_00_000)
-            .sort((a, b) => b.population - a.population)
+            fetch("https://restcountries.com/v3.1/all")
+              .then((response) => response.json())
+              .then((data) => {
+                let res = data
+                  .filter((country) => country.population > 1_00_00_000)
+                  .sort((a, b) => b.population - a.population)
 
-            .map((country) => country?.name?.common);
-          console.log(res);
-        });
+                  .map((country) => country?.name?.common);
+                console.log(res);
+              });
 
-      // Task 3 -> Population more than 1_00_00_000
-      //   Output
-      //  1. India - 150000000
-      //  2. China - 120000000
-      //  3. Russia - 80000000
-      // ....
+            // Task 3 -> Population more than 1_00_00_000
+            //   Output
+            //  1. India - 150000000
+            //  2. China - 120000000
+            //  3. Russia - 80000000
+            // ....
 
-      fetch("https://restcountries.com/v3.1/all")
-        .then((response) => response.json())
-        .then((data) => {
-          let res1 = data
-            .filter((country) => country.population > 1_00_00_000)
-            .sort((a, b) => b.population - a.population)
-            .map(
-              (country, index) =>
-                `${index + 1}. ${country?.name?.common} - ${country.population}`
-            );
-          console.log(res1.join("\n"));
-        });
+            fetch("https://restcountries.com/v3.1/all")
+              .then((response) => response.json())
+              .then((data) => {
+                let res1 = data
+                  .filter((country) => country.population > 1_00_00_000)
+                  .sort((a, b) => b.population - a.population)
+                  .map(
+                    (country, index) =>
+                      `${index + 1}. ${country?.name?.common} - ${country.population}`
+                  );
+                console.log(res1.join("\n"));
+              });
 
-      //4.top 10 populated countries
+            //4.top 10 populated countries
 
-      fetch("https://restcountries.com/v3.1/all")
-        .then((response) => response.json())
-        .then((data) => {
-          let res = data
-            .filter((country) => country.population > 1_00_00_000)
-            .sort((a, b) => b.population - a.population)
-            .slice(0, 10)
+            fetch("https://restcountries.com/v3.1/all")
+              .then((response) => response.json())
+              .then((data) => {
+                let res = data
+                  .filter((country) => country.population > 1_00_00_000)
+                  .sort((a, b) => b.population - a.population)
+                  .slice(0, 10)
 
-            .map(
-              (country, index) =>
-                `${index + 1} ${country?.name?.common}-${country?.population}`
-            );
-          console.log(res.join("\n"));
-        });
-      //   Task 5 -> Display the Top 10 on the screen in list form & Population are comma separated
-      fetch("https://restcountries.com/v3.1/all")
-        .then((response) => response.json())
-        .then((data) => {
-          let res = data
-            .filter((country) => country.population > 1_00_00_000)
-            .sort((a, b) => b.population - a.population)
-            .slice(0, 10)
+                  .map(
+                    (country, index) =>
+                      `${index + 1} ${country?.name?.common}-${country?.population}`
+                  );
+                console.log(res.join("\n"));
+              });
+            //   Task 5 -> Display the Top 10 on the screen in list form & Population are comma separated
+            fetch("https://restcountries.com/v3.1/all")
+              .then((response) => response.json())
+              .then((data) => {
+                let res = data
+                  .filter((country) => country.population > 1_00_00_000)
+                  .sort((a, b) => b.population - a.population)
+                  .slice(0, 10)
 
-            .map(
-              (country) => ` ${country?.name?.common}-${country?.population}`
-            );
-          console.log(res.join("\n"));
+                  .map(
+                    (country) => ` ${country?.name?.common}-${country?.population}`
+                  );
+                console.log(res.join("\n"));
 
-          let outres = res.forEach((resu) => {
-            const list = document.createElement("li");
-            list.innerText = resu;
-            document.querySelector(".mylist").append(list);
-          });
-          console.log(outres);
-        });
+                let outres = res.forEach((resu) => {
+                  const list = document.createElement("li");
+                  list.innerText = resu;
+                  document.querySelector(".mylist").append(list);
+                });
+                console.log(outres);
+              });
 
-      function addCountry(country) {
-        fetch("https://restcountries.com/v3.1/all")
-          .then((res) => res.json())
-          .then((countries) => {
-            countries.forEach((country) =>
-              addCountry({
-                name: country?.name.common,
-                flag: country.flags.svg,
-              })
-            );
-          });
-      }
-      countriesInfo.forEach((country) => addCountry(country));
+            // function addCountry(country) {
+            //   fetch("https://restcountries.com/v3.1/all")
+            //     .then((res) => res.json())
+            //     .then((countries) => {
+            //       countries.forEach((country) =>
+            //         addCountry({
+            //           name: country?.name.common,
+            //           flag: country.flags.svg,
+            //         })
+            //       );
+            //     });
+            // }
+            // countriesInfo.forEach((country) => addCountry(country));
+
+            // wenever thre is async we need to keep awake.
+
+            //   Task 2 -> Population more than 1_00_00_000 & Sorted by population
+            //         Output
+            //        ["India", "China", "Russia" ... ]
+            //put await before asynchronus function
+            // async function getcountriespopulation(population) {
+            //   const res = await fetch("https://restcountries.com/v3.1/all");
+            //   const countries = await response.json();
+
+            //   const data = countries
+            //     .filter((country) => country.population > 1_00_00_000)
+            //     .sort((a, b) => b.population - a.population)
+
+            //     .map((country) => country?.name?.common);
+
+            //   console.log(data);
+            // }
+            // getcountriespopulation(1_00_00_000);
+
+            // console.log("hi");
+            // console.log("hi");
+            // console.log("hi");
+            async function getCountriesByPopulation1(population) {
+              const res = await fetch("https://restcountries.com/v3.1/all");
+              const countries = await res.json();
+
+              const data = countries
+                .filter((country) => country.population > population)
+                .toSorted(
+                  (countryA, countryB) => countryB.population - countryA.population
+                )
+                .map((country) => country.name.common);
+
+              console.log(data);
+            }
+
+            getCountriesByPopulation1(1_00_00_000);
+
+            console.log("Hi");
+            console.log("Hi");
+            console.log("Hi");
+            console.log("Hi");
+
+            ////
+            async function getCountriesByPopulation2(population) {
+              const res = await fetch("https://restcountries.com/v3.1/all");
+              const countries = await res.json();
+
+              const data = countries
+                .filter((country) => country.population > population)
+                .toSorted(
+                  (countryA, countryB) => countryB.population - countryA.population
+                )
+                .map((country) => country.name.common);
+
+              console.log(data);
+            }
+      //top level await, we do this to get function before and asynchrnous function later.
+      // but in html page in script tag include class="module", so that we will get the solution.
+             await getCountriesByPopulation2(1_00_00_000);
+
+            console.log("Hi");
+            console.log("Hi");
+            console.log("Hi");
+            console.log("Hi");
+
+            // we can mix both of them.(the promises and await functions)
+            // (in await fetch use .then
+
+
+
+
+            async function getCountriesByPopulation3(population) {
+              try{
+
+
+              const res = await fetch("https://restcountries.com/v3.1/all");
+              var countries = await res.json();
+              }
+              catch(err){
+                console.log(err);
+              }
+
+              const data = countries
+                .filter((country) => country.population > population)
+                .toSorted(
+                  (countryA, countryB) => countryB.population - countryA.population
+                )
+                .map((country) => country.name.common);
+
+              console.log(data);
+            }
+            // for await is also used.
     </script>
   </body>
 </html>

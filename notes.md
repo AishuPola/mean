@@ -157,6 +157,42 @@ slice immutable ✅ ❌
 join immutable ❌
 split (string method) immutable ❌
 
+List of array methods :
+
+           immutable     mutable (modify the orginal array)   return type
+
+concat ✅ ❌ array
+
+slice ✅ ❌ array
+
+filter ✅ ❌ array
+
+map ✅ ❌ array
+
+reduce ✅ ❌
+
+forEach ✅ ❌
+
+every ✅ ❌ boolean
+
+some ✅ ❌ boolean
+
+push ❌ ✅ number(it returns the length of array)
+
+pop ❌ ✅ any(the element removed from the end of the array)
+
+shift ❌ ✅ any(the element removed from the begining of the array)
+
+unshift ❌ ✅ number(it returns the length of array)
+
+splice ❌ ✅ Array(an array containing the elements removed from the original array)
+
+sort ❌ ✅ array
+
+reverse ❌ ✅ array
+
+has context menu
+
 # map
 
 arrow function:

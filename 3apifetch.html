@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script class="module">
+            const cities = ["Hyderabad", "chennai", "madurai"];
+
+            //race condition will always happen
+            //fetch will return the promise.
+            function getTempofCity(city) {
+              return fetch(
+                `http://api.weatherapi.com/v1/current.json?key=06a7408c86924fe199771608241907&q=${city}&aqi=no`
+              )
+                .then((res) => res.json())
+                .then((data) => [data?.location?.name, data?.current?.temp_c]);
+            }
+            //   let p1 = getTempofCity(cities[0]);
+            //   let p2 = getTempofCity(cities[1]);
+            //   let p3 = getTempofCity(cities[2]);
+            Promise.all(
+              cities
+                //   .map((city) => getTempofCity(city))
+                .map(getTempofCity) // map needs function
+            )
+              .then(Object.fromEntries)
+              .then((data) => console.log(data));
+
+
+      // using async and awake
+
+             async function getTempofCity(city) {
+              const res=await fetch(
+                  `http://api.weatherapi.com/v1/current.json?key=06a7408c86924fe199771608241907&q=${city}&aqi=no`
+              );
+              const data=await res.json();
+             return [data?.location?.name, data?.current?.temp_c];
+
+              }
+              // this await is top level await
+              const values=await Promise.all(cities.map(getTempofCity));
+             console.log(values)
+
+
+
+
+
+
+            // it will always maintain order always
+            //   Promis.all([p1, p2, p3])
+            //     .then((values) => object.fromEntries(values))
+            //     .then((data) => console.log(data));
+
+            //sir sol:
+            //       function getTempOfCity(city) {
+            //   return fetch(
+            //     `http://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${city}&aqi=no`,
+            //     { mode: "cors" }
+            //   )
+            //     .then((res) => res.json())
+            //     .then((data) => [data?.location?.name, data?.current?.temp_c]);
+            // }
+
+            // // cities -> Array of strings ->  [P1, P2, P3] -> Array of promises
+            // Promise.all(cities.map(getTempOfCity))
+            //   .then((values) => Object.fromEntries(values))
+            //   .then((data) => console.log(data));
+
+            //or sir solution
+            //            var cities = ["chennai", "madurai", "hyderabad"];
+
+            // var result = {
+            //   chennai: 29.0,
+            //   madurai: 32.0,
+            //   erode: 28.0,
+            // };
+
+            // let P1 = fetch(
+            //   `http://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${cities[0]}&aqi=no`,
+            //   { mode: "cors" }
+            // )
+            //   .then((res) => res.json())
+            //   .then((data) => [data?.location?.name, data?.current?.temp_c]);
+
+            // let P2 = fetch(
+            //   `http://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${cities[1]}&aqi=no`,
+            //   { mode: "cors" }
+            // )
+            //   .then((res) => res.json())
+            //   .then((data) => [data?.location?.name, data?.current?.temp_c]);
+
+            // let P3 = fetch(
+            //   `http://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${cities[2]}&aqi=no`,
+            //   { mode: "cors" }
+            // )
+            //   .then((res) => res.json())
+            //   .then((data) => [data?.location?.name, data?.current?.temp_c]);
+
+            // Promise.all([P1, P2, P3])
+            //   .then((values) => Object.fromEntries(values))
+            //   .then((data) => console.log(data));
+    </script>
+  </body>
+</html>

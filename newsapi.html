@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style></style>
+  <body>
+    <script>
+      function usersdata() {
+        fetch(
+          "https://newsapi.org/v2/everything?q=tesla&from=2024-06-21&sortBy=publishedAt&apiKey=6c8793f238454cb7ad3f510b2ca9211b"
+        )
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            //   const container = document.querySelector(".data-container");
+            //   let dataHTML = "";
+            //   data.map((dataa) => {
+            //     const formattedDate = formatDate(dataa.createdAt);
+            //     // console.log(dataa.avatar);
+            //     dataHTML += `<div class="main-container">
+            //    <div class="mini-container">
+            //      <div class="image">
+            //        <img
+            //          src="${dataa.avatar}"/>
+            //          </div>
+            //      <div class="content">
+            //        <h1>${dataa.name}</h1>
+            //        <p1 class="para"> ${formattedDate}</p1>
+            //      </div>
+            //    </div>
+            //  </div>
+            // `;
+          });
+        // container.innerHTML = dataHTML;
+        // const main = document.querySelector(".main-container");
+        // console.log(main);
+      }
+      usersdata();
+    </script>
+  </body>
+</html>

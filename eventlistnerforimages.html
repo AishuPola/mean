@@ -11,6 +11,8 @@
         display: grid;
         place-content: center;
         min-height: 100vh;
+        background-repeat: no-repeat;
+        background-size: cover;
       }
 
       button {
@@ -26,7 +28,13 @@
     <button onclick="pause()">⏸️</button>
 
     <script>
-      const colors = ["crimson", "plum", "orange", "purple", "teal"];
+      const images = [
+        "download (1).jpg",
+        "download (2).jpg",
+        "download (3).jpg",
+        "download (4).jpg",
+        "download (5).jpg",
+      ];
       var res;
       var index = 0;
 
@@ -38,12 +46,12 @@
           return;
         }
         res = setInterval(() => {
-          if (index == colors.length) {
+          if (index == images.length) {
             index = 0;
           }
 
-          console.log(index, colors[index]);
-          document.body.style.backgroundColor = colors[index];
+          console.log(index, images[index]);
+          document.body.style.backgroundImage = `url('${images[index]}')`;
           index++;
         }, 2000);
       }

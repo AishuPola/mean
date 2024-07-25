@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    body {
+      margin: 0px;
+      display: flex;
+      flex-wrap: wrap;
+      /* place-content: center; */
+
+      min-height: 100vh;
+      background-color: white;
+      padding-top: 20px;
+      padding-left: 10px;
+    }
+    .main-container {
+      width: 400px;
+      height: 140px;
+      background-color: orange;
+      padding-top: 10px;
+      padding-bottom: 20px;
+      padding-left: 10px;
+      padding-right: 10px;
+      margin: 10px;
+    }
+    /* .container {
+      /* background-color: white; */
+    /* background-color: orange; */
+    /* width: 200px;
+    }  */
+    .mini-container {
+      border-radius: 25px;
+      width: 400px;
+      min-height: 150px;
+      display: flex;
+      background-color: white;
+    }
+    img {
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+    }
+    .content {
+      text-align: left;
+      padding-left: 20px;
+    }
+    .content p {
+      margin-top: 0;
+    }
+    .image {
+      padding-left: 15px;
+      padding-top: 15px;
+    }
+    .para {
+      margin: 0;
+      opacity: 70%;
+    }
+    .data-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+  </style>
+  <body>
+    <div class="data-container"></div>
+    <!-- <div class="main-container">
+      <div class="mini-container">
+        <div class="image">
+          <img
+            src="https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1017.jpg"
+          />
+        </div>
+        <div class="content">
+          <h1>Chris</h1>
+          <p1 class="para"> Mon May 20 2024</p1>
+        </div>
+      </div>
+    </div> -->
+    <script>
+      function formatDate(dateString) {
+        const date = new Date(dateString);
+        const options = { weekday: "short", month: "short", year: "numeric" };
+        return date.toLocaleDateString("en-US", options);
+      }
+
+      function usersdata() {
+        fetch("https://669a42869ba098ed61fef725.mockapi.io/users")
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            const container = document.querySelector(".data-container");
+            let dataHTML = "";
+            data.map((dataa) => {
+              const formattedDate = formatDate(dataa.createdAt);
+              // console.log(dataa.avatar);
+              dataHTML += `<div class="main-container">
+             <div class="mini-container">
+               <div class="image">
+                 <img
+                   src="${dataa.avatar}"/>
+                   </div>
+               <div class="content">
+                 <h1>${dataa.name}</h1>
+                 <p1 class="para"> ${formattedDate}</p1><br>
+                 <button onclick="deletedata(${dataa.id})">delete</button>
+
+               </div>
+
+             </div>
+
+           </div>
+      `;
+            });
+
+            container.innerHTML = dataHTML;
+            // const main = document.querySelector(".main-container");
+            // console.log(main);
+          });
+      }
+      usersdata();
+
+      function deletedata(id) {
+        console.log("deleting the user");
+        fetch(`https://669a42869ba098ed61fef725.mockapi.io/users/${id}`, {
+          method: "DELETE",
+        }).then((res) => res.json());
+      }
+      deletedata(id);
+
+      // .then((response) => response.json())
+      //   .then((countries) => {
+      //     const container = document.querySelector(".country-container");
+
+      //     let countryHTML = "";
+      //     countries.forEach((country) => {
+      //       countryHTML += `
+      //         <div class="container1">
+      //           <img src="${country.flags.png}" alt="${country?.name?.common} Flag" />
+      //           <h2>${country.name.common}</h2>
+      //           <div class="new">
+      //             <div>Population: <span>${country.population}</span></div>
+      //             <div>Region: <span>${country.region}</span></div>
+      //             <div>Capital: <span>${country.capital}</span></div>
+      //           </div>
+      //         </div>
+      //       `;
+      //     });
+
+      //     container.innerHTML = countryHTML;
+      //   });
+    </script>
+  </body>
+</html>

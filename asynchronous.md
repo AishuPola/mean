@@ -221,8 +221,51 @@ for race it is 8.
 
 // promise.all
 //1. waits till all promises completes.
-//2. any one errors|goes to catch block.
+or
+waits till one get rejected.
+//2. any one errors|goes to catch block. 3. in error case u dont get the other promise value.
 
 // promise.race
 //1. waits till any one promise completes
 //2. when the fastest one gets reject, then it will error out.
+
+promises.allsettled:
+
+1. waits till all promisescompletes
+2. always goes to .then
+3. always return an array of objects.
+4. it has keys:(status:resolved/rejected, values)
+
+promises -->.finally
+its is for cleanup code or login purposes.
+![alt text](image-80.png)
+
+# situation wer race is used?
+
+```js
+
+set Timeout(()=>{
+  console.log("");
+  prmises.resolve()
+})
+//in this case 1st promises will exceute and then set timeout, the 2 queues are present and vip queue consists of promises,
+
+
+
+
+
+
+```
+
+![alt text](image-81.png)
+
+when the data is deleted in postman, its shown in frontend.
+why?  
+to show the notification to the people,users.
+
+why script tag is used at end of body instead of header in html?
+because rendering should happen.
+
+//race-condition:
+
+//payload we are sending in the body.
