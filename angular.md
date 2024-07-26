@@ -301,6 +301,8 @@ should learn ng if, ng for.
 
 # two way binding:
 
+we import formsmodule, to support ngmodel.
+
 if we chnage the view, color is the model.
 color gets updated, view is out of sync.
 
@@ -308,3 +310,171 @@ view gots updated, model got updates, since model updated, view get updates.
 starts with view, and ends with view.
 
 for example if we are writing color in text box, (view), model gets updated, and in view color will be displayed.
+
+--this is giving typescript
+
+![alt text](image-103.png)  
+![alt text](image-104.png)
+
+![alt text](image-105.png) 2. github 3. congigure the netflify 4.![alt text](image-106.png) 5. 5. 5. ![alt text](image-107.png) 6. depploy
+
+@if, will remove from the dom.
+display none will not remove from the dom.
+
+![alt text](image-108.png)
+
+native apps-->android user.
+web apps are more better than native apps.
+
+why routing?
+
+when no routing:
+
+1. hit refresh u are lost.
+
+2. cannot bookmark.
+
+when we have routing:
+
+1. organised.
+2. ease of acess
+3. shareing url.
+4. secure route(i should show some things, only if they are logged in.)
+
+current problem:  
+it has only one html file.
+
+routing in old web apps:more waiting.
+
+solution:
+
+- smooth routing.
+
+mapping:
+
+![alt text](image-111.png)
+
+![alt text](image-109.png)
+
+2.place holder, what to display.
+![alt text](image-110.png)
+
+with href(change the url), the load the page, it will load.
+with router link: sam as href, but no refresh.  
+<router-outlet>
+is for display
+
+# redirect:
+
+wen lost to page,
+then:
+![alt text](image-112.png)
+
+wheen we need redirection:
+![alt text](image-113.png)
+
+how to re-direct:
+![alt text](image-114.png)
+path film full means excatly it need to match.
+
+deleting movie:
+![alt text](image-115.png)
+![alt text](image-116.png)
+![alt text](image-117.png)  
+![alt text](image-118.png)
+
+from child to parent-->its @output
+
+from parent to child --->its @input
+either input or output we will keep in child component only , instead of keepin in app(or parent) component.
+
+![alt text](image-119.png)
+![alt text](image-120.png)
+
+![alt text](image-121.png)
+dng opp of it.
+
+![alt text](image-122.png)
+
+# process of @output
+
+![alt text](image-123.png)  
+![alt text](image-124.png)
+
+this @output is used for deleting the particular movie.
+movielist-->parent
+movie is the child.
+
+in movie we should write @output.
+//delete movie:
+![alt text](image-125.png)
+
+![alt text](image-126.png)
+![alt text](image-127.png)
+
+![alt text](image-128.png)
+
+final:
+![alt text](image-129.png)
+
+# angular material
+
+![alt text](image-130.png)
+is from google.
+its
+
+# add button
+
+![alt text](image-131.png)
+![alt text](image-132.png)
+for dislike
+![alt text](image-133.png)
+
+# add-movie
+
+![alt text](image-134.png)
+![alt text](image-135.png)
+
+![alt text](image-136.png)
+![alt text](image-137.png)
+![alt text](image-138.png)
+
+# singleton
+
+there is a problem,
+after routing, /movies means, movielist component. '/add means addmovie component.
+
+these both are siblings.
+they are not parent and child,
+so other concept is introduced, called "service",
+it can share data amoung many components.
+
+it is called as "singleton".
+it means , create one obj, of this class., and share it with everyone.
+it canbe used in multiple components.
+its like global variable.
+
+keep the global data.
+
+# how to create a syntax for service.
+
+![alt text](image-139.png)
+![alt text](image-140.png)
+![alt text](image-141.png)
+![alt text](image-142.png)
+
+![alt text](image-143.png)
+
+![alt text](image-144.png)
+only one object is created for particular class.
+![alt text](image-145.png)
+![alt text](image-146.png)
+![alt text](image-147.png)
+add imports
+![alt text](image-148.png)
+![alt text](image-149.png)
+
+![alt text](image-150.png)  
+![alt text](image-151.png)
+
+![alt text](image-152.png)
