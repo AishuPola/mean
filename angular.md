@@ -478,3 +478,49 @@ add imports
 ![alt text](image-151.png)
 
 ![alt text](image-152.png)
+
+# styling:
+
+![alt text](image-153.png)
+![alt text](image-154.png)
+![alt text](image-155.png)
+![alt text](image-156.png)
+![alt text](image-157.png)
+
+<mat-card shoulf be there>
+angular material: 
+its for learning how to use 3rd class party apps.
+
+# create new component.
+
+![alt text](image-158.png)
+![alt text](image-159.png)
+![alt text](image-160.png)
+adding parameter from router:
+![alt text](image-161.png)  
+![alt text](image-162.png)
+
+receipe app:
+
+5. title of dish
+6. image
+7. ingredients
+8. time to complete
+9. procedure.(steps to cook)
+10. category
+    difficulty level(easy, medium, hard)
+
+dashboard page,(search functionality by name, veg or non veg)
+receipe details
+should add receipe, delete receipe also
+
+# node modules:
+
+for windows package manager is chocolatey.  
+in mac its brew install (chrome)  
+in linux its apt is the pcakge manageer.
+
+in angular its npm(node package manager.)
+
+where it is from?  
+npmsjs.com
