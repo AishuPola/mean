@@ -523,4 +523,305 @@ in linux its apt is the pcakge manageer.
 in angular its npm(node package manager.)
 
 where it is from?  
-npmsjs.com
+npmsjs.com(website)(we can download)
+
+![alt text](image-163.png)  
+ gitignore:
+wht ever are there in git ignore, the github will not track it.  
+ why?
+they can install npm install,
+node modules is 250mb.  
+ 2. .vs code files.
+
+3. dist
+
+how it will know which version to include?
+
+in package.json all the versions are present, so it will know what to install.
+
+# dependencies and dev depenedices in package.json:
+
+only during development we require is dev depenedices.
+they are nothing related to app.
+(it )is coming from jasmine-core.
+
+why it is there?  
+its for developer experience.
+
+these will not break the app, if somthing is broke in that files in devdepened.
+
+for suppose, if something is missing from devdependency, still it will work.
+
+dependencies, if one is not installed, then app will not work.
+
+anyhow both are stored in node modules only.
+
+karma: is for testing.
+
+node_modules: contains more than 10k files.
+
+each folder consists of sub folders.(each package json will require other 10 package json's)
+
+ctrl+shift+v (reload) if vscode is struck.
+
+mlm(multi level marketing): its similar to dependencies, which are requried to install 1st.(its depth first search, find the leaf node, install the down one, and corresponding to that, before., after installing all then the app will run)
+
+yarn will install all properly, wen npm is not working,
+pnpm is used, even wen yarn is notr working.  
+ there yarn, pnpm all thhese are for npm install.
+
+#in github: we can create fork, which is copy., make chnages and give pull request.
+
+scaffolding means --generating the file.
+
+# read me:
+
+prcoess of how to do project ,set up the project.  
+ng build will run netflify app.
+
+npm run build==>ng serve.(shortcut)
+
+# gzip:
+
+to compress any type of folder.
+
+for people it will have (estimated transfer size)
+
+and wen opned in browser(it will give raw_size)
+
+ngx,
+
+brotli(better than gzip)(compression 30% fast)
+app can run faster in brotli
+
+# dist:
+
+consists of only one index.html in browser.
+
+-- (is called as css variable)
+
+point of having the code in one line is, decreasing the size.
+
+# what cli is doing behind the scenes:
+
+1.  making into one line.(remove the spaces)  
+    why?
+    file size is smaller, it will compress(this is called as minifying)
+
+2.  making varibales names to a,b, c(uglify js will do this.)
+
+why deploying only, 7 files are required, that are present in dist files.
+
+3. converting ts to js(this is called as transpiling-->converting one lang to other)
+
+4. adding polyfill
+
+inside dist folder, it consists of polyfills:  
+A polyfill in JavaScript is a script that adds modern features to older browsers that do not natively support them.  
+it will ad new features to browser
+
+support older browsers
+
+it will have promise code,
+
+these all taken care through babble(supporting older browsers).
+
+polyfill size is:
+
+how cli is able to do, through webpack(it uses plugin system)
+
+https://webpack.js.org/
+
+# ts config.json:
+
+while converting ts into js, which version should it convert(target:).
+
+.spec.ts--> ts will know that these are test case files,
+
+# editorconfig:
+
+indent and all will presemt:
+
+# angular.json:
+
+third party is added into here automatcially,
+
+we are setting a budget for building the app:
+the files should be particular size only,, other wise, it will not build the app.
+
+why?  
+ so that our size should be smaller.
+
+# main.ts:
+
+it says which component it shuld start with,
+
+its return type in promise object..
+
+why?
+so app will take, some time to bootstrap, thats why its promise object
+
+bootsrapping application means ,creating dom elements , once html file is loaded.
+
+# app config:
+
+consist routing,router files, linking to main ts
+
+# main-H7ON7QZ.JS (main-H7ON7QZ.JS why it is named as H7ON7QZ but not why as main .js in angular explain the code h70n7qz)
+
+1. Purpose of File Names
+
+- Cache Busting: The alphanumeric string (e.g., H7ON7QZ) is a hash or a unique identifier. This is used for cache busting, which helps ensure that browsers always load the most recent version of a file. When you deploy a new version of your application, the hash in the filename changes, prompting browsers to fetch the new file rather than using a cached version.
+
+- File Versioning: By incorporating a hash in the filename, Angular can automatically manage file versions and ensure that users receive updated assets without the need for manual cache clearing.
+
+# clear explanation:
+
+starting,  
+all the files will loads from server,  
+it will lod from cache(memory)  
+avd:  
+load time decrreased,  
+problem:  
+caching works by file name.  
+if same name is there for both versions, then cant update the versions.  
+solution: name is the only prblm evertuime i build, the hash name gets changed.  
+if we dont change the source code, then hashn name will be same. so that it can get update.
+
+index.html will ask the new version of the file.
+
+begin,  
+challenge  
+solution
+
+# browser will not load from cache it loads from server ewhen a new version is searched.
+
+# Ahead-of-time (AOT) compilation
+
+before angular 5, aot can be on and off.
+
+the Angular ahead-of-time (AOT) compiler converts your Angular HTML and TypeScript code into efficient JavaScript code during the build phase before the browser downloads and runs that code.
+
+Compiling your application during the build process provides a faster rendering in the browser.
+
+# tree shaking
+
+Tree shaking, also called dead code elimination, is a process during which unused code is removed from our build. This technique allows us to reduce the final size of our application.
+
+1. Begin:
+
+- managing unused code is crucial beforee tree shaking
+
+2. challenge :
+
+- Your project has a lot of code and libraries.
+- Some of this code is never used or needed in your final application.
+- This extra code makes your app bigger and slower to load.
+
+3. solution:
+
+- Tree Shaking examines your project and identifies which parts of the code are actually being used.
+- It then removes all the unused or unnecessary code from your final bundle.
+- This results in a smaller and more efficient application that loads faster.
+
+![alt text](image-164.png)
+![alt text](image-165.png)
+![alt text](image-166.png)  
+![alt text](image-167.png)
+![alt text](image-168.png)
+![alt text](image-169.png)
+![alt text](image-170.png)
+![alt text](image-171.png)
+![alt text](image-172.png)
+![alt text](image-173.png)
+![alt text](image-174.png)
+
+! not null assertion:
+![alt text](image-175.png)
+using mock api:
+
+![alt text](image-176.png)
+![alt text](image-177.png)
+![alt text](image-178.png)
+![alt text](image-179.png)
+![](image-180.png)
+data is the angular model to display
+
+after sonstrcutor call, template will execute.
+
+in constructor if heavy api is there, then there would be loading, rendering, it will slow down the view.
+solution:
+
+render template 1st, then api.
+
+sol is angular life cycle.(these are time machine)
+
+ng oninit(){
+after initialising the component
+}
+not to slow down the view
+![alt text](image-181.png)
+
+1st movelist is empty, it will render,then trigger the api and display those on screen
+![alt text](image-182.png)
+this is not the correct way
+![alt text](image-183.png)
+![alt text](image-184.png)
+![alt text](image-185.png)
+![alt text](image-186.png)
+![alt text](image-187.png)
+![alt text](image-188.png)
+
+deleting using method:
+![alt text](image-189.png)
+![alt text](image-190.png)
+![alt text](image-191.png)
+![alt text](image-192.png)
+
+# add :
+
+genric: creating a type.
+![alt text](image-193.png)
+![alt text](image-194.png)
+![alt text](image-195.png)
+![alt text](image-196.png)
+![alt text](image-197.png)
+![alt text](image-198.png)
+constructor call we need to give(inject router)
+
+advance routing:
+![alt text](image-199.png)
+![alt text](image-200.png)
+![alt text](image-201.png)
+![alt text](image-202.png)
+![alt text](image-203.png)
+
+# navigation:
+
+![alt text](image-204.png)
+![alt text](image-205.png)
+![alt text](image-206.png)
+![alt text](image-207.png)
+![alt text](image-208.png)
+![alt text](image-209.png)
+
+# REACTIVE FORMS:
+
+in add movie--> import reactiveform module.  
+in place of ngmodel keep->form controlname
+inside formgrups we will have form contril names.
+(ngsubmit)
+it will not refresh the browser
+
+error flow:
+move away from feild
+
+on blur
+handleblur
+touched=true
+![alt text](image-212.png)
+
+# edit
+
+![alt text](image-210.png)
+![alt text](image-211.png)
