@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    body {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      place-content: center;
+    }
+  </style>
+  <body>
+    <input type="text" class="entertext" placeholder="enter an item" />
+    <button class="additem">Add +</button>
+    <ol class="itemlist"></ol>
+    <script>
+      const additem = document
+        .querySelector(".additem")
+        .addEventListener("click", function () {
+          const input = document.querySelector(".entertext");
+          const enteredItem = document.createElement("li");
+          enteredItem.innerText = input.value;
+          //value refers to input
+          document.querySelector(".itemlist").append(enteredItem);
+          input.value = "";
+        });
+    </script>
+  </body>
+</html>

@@ -825,3 +825,192 @@ touched=true
 
 ![alt text](image-210.png)
 ![alt text](image-211.png)
+
+setvalue:
+
+patchvalue:
+
+partial update. update the part which is mentioned
+
+setvalue:
+it will make others null and give only the mentioned values.
+
+lifecycle method is :
+ngonit()
+
+regex-one website to practise regular expressions.
+
+(add,edit,delete,get)--->using crud operations
+
+for and id,  
+value and label.(imp)
+
+ngif,ngfor, custom directives,custome pipes,rxjs
+
+# lazy loaded:
+
+t0 decrease the load on strting page,  
+we will load the particular page,separetly wen clicking on
+
+in route page we use,
+
+when we do property binding, we dont need any interpolation.
+
+to connect model to view and view to model,(we use 2 way binding)
+
+attribute directives:
+
+ng style:(dynamically we want to change we use it) (import ngstyle)
+ng class
+
+how it will know css is different for diff component?
+it will create custom classes,attrubute selector[] will have id,,
+
+# node js
+
+what is nodejs?
+
+eniviormnemnt torun js.(place to run js)
+
+why node.js?
+some thing broswers cannot do?
+crud operations it cannot do.  
+it is intentiionally made that way.  
+so that others canit change them.
+
+dis advantages :
+
+browers are restricted.
+
+1, cannot acess file systerm  
+2.cannot acess hardware details  
+3.cannot copy files.  
+4. cannot delete files. '
+
+Famous virus are spread through browser.
+!. love viruse:
+early 20000's 2. worm virus:
+it will duplicate
+
+node js is to used to run js, build web apps.
+
+# node js usage:
+
+1. streaming:
+2. BDA
+3. CHAT BOT
+4. web srcapping(stealing data )
+
+# rxjs:
+
+use case:
+we are reacting to what user use is typing.
+its converting into api:
+its compatibility to wrok with any of the framework.  
+how it works:
+everyting is a stream.
+website:rxjs marble.:helps for understanding stream.
+data is comin over the time
+its like time set interval.
+
+# pub and submodel:
+
+stream which is coming us called observable data,
+
+publisher--->sends the data to particular platform
+submodel:will recive notification,from publisher, if we want data, we need to subscribe to it.
+
+![alt text](image-213.png)
+
+observable: untill u subscribe we will not get.\
+
+# obervable:
+
+. Observables provide support for passing messages between parts of your application.
+
+![alt text](image-214.png)
+
+whenever we go to nest request, cancel the prebious request,
+
+we cant do it in promises.
+in observable its very easy.
+![alt text](image-215.png)
+
+# types of operations
+
+# creatio: interval is used for creating
+
+# filtering
+
+# transformation
+
+# combination(combing two oberservable---.merge)
+
+# creation:
+
+without any operator we can
+![alt text](image-216.png)
+
+until u subscribe, we will not get data.
+to complete subscripto--->
+subscription.complete()
+
+![alt text](image-217.png)  
+https://stackblitz.com/edit/rxjs-zhsmte?file=index.ts
+
+with "of" we can create observable:
+
+![alt text](image-218.png)
+
+take(2)---> 2 things ony it will give.
+
+1. creation
+2. transformation
+3. subscription.
+
+# filtering operators :
+
+# debounce:
+
+there are looking for clamness of time, if there is no time in between , it will print the last one.
+
+# distinct until changed:
+
+when the value is chnaged only it will be printed..
+removing the duplicate part
+
+# skip:
+
+opp of take4
+skip(2)
+it will give last 2 elements
+
+last:
+last will give only last
+
+# combination operators:
+
+# concat:
+
+merges .
+
+# combineLatest:
+
+![alt text](image-219.png)
+
+# switchMap:
+
+subcribing to new one(interval)
+
+how its usefuel:
+wever searching the data, and cancel the previous request so it useful by using switch map.
+
+cancellation can be don with switch map.  
+important
+
+unsubrivbe previous interval amd start new
+
+stackblitz:online testing , creating the app.
+
+for auto complete to work in serach functionality use
+(input) instead of change

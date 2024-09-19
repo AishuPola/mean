@@ -13,6 +13,32 @@ cache means copy of the daata. whenever u test test it with enable cache. in ins
 status code-request is approved.
 angular material website
 
+# ParseInt:
+
+converts a string to number
+radix is optional
+Syntax:
+pareint('string',radix)
+
+- the radx will specifiy the the type of string in
+- by default the radix is 10 onyl
+- if we give the radix <2 and >36--then it will give the output as NAN
+
+```js
+console.log(parseint("3.4")); // 3.4
+console.log(parseint("3.4", 10)); // 3.4
+console.log(parseint("101", 2)); // decimal value equivalent to decimal of 101-> 5 output
+parseInt("abc"); // NAN
+```
+
+# undefined
+
+declared but not assigned.
+
+# not defined
+
+never declared ,it gives error
+
 # floating
 
 ![alt text](image.png),
@@ -30,8 +56,10 @@ context guy--execution context
 ![alt text](image-2.png)
 
 initialisation means creating a space in memory.  
- assignment is storing the value in the memory.  
- temporal dead zone:
+ assignment is storing the value in the memory.
+
+temporal dead zone:
+
 it is applicable only for let and const.
 it is the zone wer the initialisation is not done.
 the variables are stored in that area. since these are un initialised. until they get initialised.
@@ -813,7 +841,7 @@ console.log(luffy.actions.crewShout.call(luffy));
 ````js
 Let's analyze the provided code and understand the output for each method call.
 
-### luffy Object Structure:
+# luffy Object Structure:
 
 ```javascript
 const luffy = {
@@ -892,15 +920,12 @@ When you try to use `call` to explicitly set the `this` context for these method
 
 Understanding these nuances helps in correctly predicting and debugging issues related to `this` binding in JavaScript.
 
-````
-
 not recommeded:
 ()()
 =>()
 =>=>
 recommended:
 ()=>
-
 
 //arrw=ow functions should be placed inside normal functions i.e nest arrow functions inside normal functions
 
@@ -937,7 +962,7 @@ console.log(lamborgini);
 console.log(typeof car); //function
 //behind the scenes it is function
 //what ever we do in function, we can do it in car.
-````
+```
 
 # methods
 
@@ -1136,13 +1161,28 @@ when we use article and sections elements
 .
 articles in that sections
 
-order:
-main
-article
+order:  
+main  
+article  
 sections.
 
 class will have higher priority.
 
+# Semantic Elements
+
+- diff between div,main and sec, artical
+
+## Main:
+
+1. readibility
+2. rating- SOC- mentioning nav files helping bots with navigation links
+3. Accessibility=blind people-visually impered people-to read the main content not the side ones
+
+## Artical and section
+
+- indside articsl can have many sces
+
+```html
 <style>
     /* this is specificity when ever there is clash of styles, which will get the  higher priority*/
     /* higher priority for inline, id, next class */
@@ -1166,6 +1206,7 @@ class will have higher priority.
     <p style="color: yellow" id="good" class="fun">Hi, aishwarya pola</p>
   </body>
 </html>
+```
 
 # grid:
 
@@ -1285,3 +1326,108 @@ console.log("start is clicked");
 }
 
 ![alt text](image-67.png)
+
+JS:
+
+- is single thread and asyn(smart)
+- concurrent
+- setTimeout---is not JS code it is browser fn , it is living inside webapi
+
+## Callback: time component involved
+
+- An Action has to complete
+- it triggers the another action
+- the fn which is getting called is call back fn, in case of settimeout--the arrow fn is call back fn
+- only when time component involved then it asynchronous then only it is caleed call back
+
+# 4 parts in web:
+
+1. (Main thread)call Stack- only place can run JS
+2. WebApi: it knows to wait - which ever comes to web api are asyn, which have to wait they will come to webapi
+3. callback Queue- call back fn is stored unit it is pushed to the stack
+4. event Loop - will push from queue to stack only when stack is empty
+
+## Event Loops
+
+- all the synchronous code is called blocking code since it is blocking asnychronous code
+- to avoide the blocking of code quality should be maintained -
+- onclick-eventlisners---asynchrous (onclick) for click functioality
+
+# Dooms Taiangle:
+
+## fetch- we don't know the time
+
+- we don't know how much time it will take to fetch but execute the part which is written that's why we use this method to get data
+
+> To over come this dooms traingle promises are there
+
+# Promise:
+
+- solves call back hell.
+
+> 3 states
+
+1. pending⌛
+2. fulfilled✅
+3. Rejected❌
+
+```js
+promise.resolve(3); // fullfill
+promise.reject(3); // rejected
+```
+
+![alt text](image-39.png)
+
+# REST API
+
+- interface b/w backend and frony end
+- request response , response will be a url
+  ![alt text](image-40.png)
+
+# Multiple Promises:
+
+2 methods to handle multiple promises
+
+- promise.all - it will wait for all the promises resolve
+- if any one is rejected, all get rejected goes to catch block
+- waits till one gets rejected
+  > ![alt text](image-41.png) // [2,3,4]
+- promise.any / promise.race
+- it will wait until any one completes
+- will error out if fastest one is rejected
+  > ![alt text](image-42.png) > ![alt text](image-43.png) > ![alt text](image-44.png)
+
+# Promise.allSettled()
+
+- will give all promises with their status which got fullfilled and rejected
+- this will always returns an array of object with (status and value) in array
+- it waits till all promises complete
+- always goes to thr .then
+- in all we will not get all the promises
+  ![alt text](image-45.png)
+
+# Finally - will always get exectues
+
+- will be used to clean up the code
+  ![alt text](image-46.png)
+
+# Async-aWait
+
+- for asny fn we have to put await in front of that fn
+- beginer friendly syntax
+- in promise we hadle the error through .catch
+- using try and catch
+
+# Note:
+
+- fetch will goes to the webApi
+- coz syack doesn't know how to exectue
+- and it is an asyn fn
+- so fetch will also goes the round trip
+- if we have .then (res=>res,json())--> .json() is also an asyn fn - so makes a round trip
+- in ,then if we donesn't have any asny code then it exectutes in the stack
+- if we have promises and timeout if both have same time completes at same time , then promises will be going to the vip queue in queue
+
+# GET ->
+
+# DELETE-> also will give all the data that got deleted , it will be easy for the front end to show the notification

@@ -269,3 +269,7 @@ because rendering should happen.
 //race-condition:
 
 //payload we are sending in the body.
+
+image ,
+name,
+price
